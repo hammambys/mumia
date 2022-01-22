@@ -11,16 +11,25 @@ export default function SearchBox() {
   return (
     <form className="search" onSubmit={submitHandler}>
       <div className="row">
-        <input
+        <div className='search-field'>
+          <i className="fa fa-search"></i>
+          <input
+          placeholder='chercher'
           type="text"
           name="q"
           id="q"
           onChange={(e) => setName(e.target.value)}
-        ></input>
-        <button className="primary" type="submit">
-          <i className="fa fa-search"></i>
-        </button>
+          ></input>
+
+        </div>
+
+     
+       <button className="primary" type="submit">
+          Rechercher
+          
+          </button>
       </div>
+      
     </form>
   );
 }

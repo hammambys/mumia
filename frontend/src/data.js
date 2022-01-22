@@ -72,6 +72,18 @@ const data = {
       numReviews: 15,
       description: 'high quality product',
     },
+    {
+      _id: '7',
+      name: 'Adidas Fit Pant',
+      category: 'Pants',
+      image: 'https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg',
+      price: 139,
+      countInStock: 12,
+      brand: 'Adidas',
+      rating: 4.5,
+      numReviews: 15,
+      description: 'high quality product',
+    },
   ],
 };
 export default data;

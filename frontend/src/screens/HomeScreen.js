@@ -6,6 +6,7 @@ import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
 import { useDispatch, useSelector } from 'react-redux';
 import { listProducts } from '../actions/productActions';
+import { listProductCategories } from '../actions/productActions';
 import { listTopSellers } from '../actions/userActions';
 import { Link } from 'react-router-dom';
 
@@ -21,12 +22,42 @@ export default function HomeScreen() {
     users: sellers,
   } = userTopSellersList;
 
+  const productCategoryList = useSelector((state) => state.productCategoryList);
+  const {
+    loading: loadingCategories,
+    error: errorCategories,
+    categories,
+  } = productCategoryList;
+
+  
   useEffect(() => {
     dispatch(listProducts({}));
+    dispatch(listProductCategories());
     dispatch(listTopSellers());
   }, [dispatch]);
   return (
     <div>
+      <div className='categories-list'>
+          <ul className="categories">     
+            {loadingCategories ? (
+              <LoadingBox></LoadingBox>
+            ) : errorCategories ? (
+              <MessageBox variant="danger">{errorCategories}</MessageBox>
+            ) : (
+              categories.map((c) => (
+                <li key={c}>
+                  <Link
+                    to={`/search/category/${c}`}
+                    
+                  >
+                    {c}
+                  </Link>
+                </li>
+              ))
+            )}
+          </ul>
+      </div>
+      <div className='top-sellers'>
       <h2>Top Sellers</h2>
       {loadingSellers ? (
         <LoadingBox></LoadingBox>
@@ -47,6 +78,8 @@ export default function HomeScreen() {
           </Carousel>
         </>
       )}
+        </div>   
+      
       <h2>Featured Products</h2>
       {loading ? (
         <LoadingBox></LoadingBox>
