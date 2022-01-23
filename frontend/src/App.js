@@ -80,33 +80,17 @@ function App() {
                 </ul>
               </div>
             ) : (
-              <div className="dropdown">
-                <Link to="/signin">Se Connecter</Link>
-                
-                <ul className="dropdown-content">
-                <button className="primary"  type="submit"> SE CONNECTER
-          </button>
-                  <li>
-                    <Link to="/orderhistory">Votre compte</Link>
-                  </li>
-                  <li>
-                    <Link to="/orderhistory">Vos commandes</Link>
-                  </li>
-                  <li>
-                    <Link to="/orderhistory">Votre liste d'envies</Link>
-                  </li>
-                  
-                </ul>
-              </div>
+              <Link to="/signin">Sign in</Link>
+              
               
             )}
           <div>
          
           <div className="dropdown">
                 
-          <Link to="/">Aide</Link>
+          <Link to="/">Help</Link>
                 <ul className="dropdown-content">
-                <button className="primary"  type="submit"> CHAT EN DIRECT
+                <button className="primary"  type="submit"> LIVE CHAT
           </button>
                   
                   
@@ -115,7 +99,7 @@ function App() {
           </div>
           <div>
             <Link to="/cart">
-              Panier
+              Cart
               {cartItems.length > 0 && (
                 <span className="badge">{cartItems.length}</span>
               )}

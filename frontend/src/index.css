@@ -25,6 +25,7 @@ body {
   grid-template-rows: 5rem 1fr 5rem;
   height: 100%;
 }
+
 header {
   grid-area: header;
   padding: 3rem 10rem;
@@ -33,9 +34,10 @@ header {
 }
 main {
   grid-area: main;
-  padding: 1rem;
+  padding: 2rem 10rem;
   background-color: #e2e0e0;
 }
+
 footer {
   grid-area: footer;
   background-color: #203040;
@@ -118,7 +120,6 @@ a.brand {
 }
 .row {
   display: flex;
-
   justify-content: space-between;
   align-items: center;
 }
@@ -131,6 +132,29 @@ a.brand {
 .row.start {
   justify-content: flex-start;
 }
+.row-main {
+  display: grid;
+  grid-template-columns: auto auto auto auto auto;
+  grid-gap: 3rem;
+  height: 40rem;
+}
+.middle {
+  grid-column: 2 / span 3;
+  background-color: #000000;
+}
+.right {
+  display: flex;
+  flex-wrap: wrap;
+  background-color: transparent;
+}
+.right-item {
+  background-color: #a02020;
+  width: 100%;
+}
+.right-item.bottom {
+  margin-top: 3rem;
+}
+
 .col-1 {
   flex: 1 1 25rem;
 }
@@ -300,6 +324,7 @@ img.large {
   border-right: none;
   margin-right: 0.5rem;
   margin-left: 0.5rem;
+  font-weight: bold;
 }
 .search .search-field {
   border: 0.1rem #a4a4a4 solid;

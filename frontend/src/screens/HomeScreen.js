@@ -37,7 +37,8 @@ export default function HomeScreen() {
   }, [dispatch]);
   return (
     <div>
-      <div className='categories-list'>
+      <div className='row-main'>
+        <div className='categories-list'>
           <ul className="categories">     
             {loadingCategories ? (
               <LoadingBox></LoadingBox>
@@ -56,7 +57,20 @@ export default function HomeScreen() {
               ))
             )}
           </ul>
+</div>
+<div className='middle' >
+          dfgdf
+</div>
+<div className='right'>
+<div className='right-item top' >
+          item1
+</div>
+<div className='right-item bottom' >
+          item2
+</div>
+</div>
       </div>
+      
       <div className='top-sellers'>
       <h2>Top Sellers</h2>
       {loadingSellers ? (

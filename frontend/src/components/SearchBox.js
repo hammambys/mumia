@@ -14,7 +14,7 @@ export default function SearchBox() {
         <div className='search-field'>
           <i className="fa fa-search"></i>
           <input
-          placeholder='chercher'
+          placeholder='Search'
           type="text"
           name="q"
           id="q"
@@ -25,7 +25,7 @@ export default function SearchBox() {
 
      
        <button className="primary" type="submit">
-          Rechercher
+          Search
           
           </button>
       </div>
