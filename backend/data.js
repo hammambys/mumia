@@ -83,12 +83,13 @@ const data = {
       name: 'Adidas Fit Pant',
       category: 'Pants',
       image: '/images/p6.jpg',
-      price: 139,
+      price: 135,
       countInStock: 12,
       brand: 'Adidas',
       rating: 4.5,
       numReviews: 15,
       description: 'high quality product',
+      discount:20
     },
   ],
 };
