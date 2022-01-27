@@ -134,7 +134,7 @@ a.brand {
 }
 .row-main {
   display: grid;
-  grid-template-columns: auto auto auto auto auto;
+  grid-template-columns: 20rem 20rem 20rem 20rem 20rem;
   grid-gap: 3rem;
   height: 40rem;
 }
@@ -142,17 +142,28 @@ a.brand {
   grid-column: 2 / span 3;
   background-color: #000000;
 }
+.middle img {
+  width: 100%;
+  height: 100%;
+}
 .right {
   display: flex;
   flex-wrap: wrap;
   background-color: transparent;
+  height: 100%;
 }
 .right-item {
-  background-color: #a02020;
+  background-color: #ffffff;
   width: 100%;
+  height: 49%;
 }
+.right-item img {
+  width: 100%;
+  height: 100%;
+}
+
 .right-item.bottom {
-  margin-top: 3rem;
+  margin-top: 1rem;
 }
 
 .col-1 {

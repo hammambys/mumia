@@ -9,6 +9,9 @@ import { listProducts } from '../actions/productActions';
 import { listProductCategories } from '../actions/productActions';
 import { listTopSellers } from '../actions/userActions';
 import { Link } from 'react-router-dom';
+import ad from "../ad.jpg";
+import adtwo from "../adtwo.jpg";
+
 
 export default function HomeScreen() {
   const dispatch = useDispatch();
@@ -58,15 +61,26 @@ export default function HomeScreen() {
             )}
           </ul>
 </div>
-<div className='middle' >
-          dfgdf
+<div className='middle ad'>
+  <img src={ad} alt="ad"></img>
+    
 </div>
 <div className='right'>
 <div className='right-item top' >
-          item1
+          <ul>
+            <li>
+              Help
+            </li>
+            <li>
+              Sell on Jumia
+            </li>
+            <li>
+              Create Account
+            </li>
+          </ul>
 </div>
-<div className='right-item bottom' >
-          item2
+<div className='right-item bottom ad' >
+          <img src={adtwo} alt="ad2"></img>
 </div>
 </div>
       </div>

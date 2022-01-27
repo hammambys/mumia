@@ -161,7 +161,7 @@ function App() {
             ></Route>
             <Route
               path="/product/:id/edit"
-              element={ProductEditScreen}
+              element={<ProductEditScreen />}
               exact
             ></Route>
             <Route path="/signin" element={<SigninScreen />}></Route>
