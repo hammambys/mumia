@@ -196,7 +196,7 @@ img.small {
   width: 100%;
 }
 img.medium {
-  max-width: 29rem;
+  max-width: 15rem;
   width: 100%;
 }
 img.large {
@@ -208,16 +208,41 @@ img.large {
   border: 0.1rem #c0c0c0 solid;
   background-color: #f8f8f8;
   border-radius: 0.5rem;
+  width: 17rem;
+  height: 25rem;
   margin: 1rem;
-}
-.card-body {
   padding: 1rem;
 }
-.card-body > * {
-  margin-bottom: 0.5rem;
+.card a {
+  color: #000000;
 }
+.card:hover {
+  width: 17.5rem;
+  height: 25.5rem;
+}
+.card img {
+  max-height: 18rem;
+}
+.discount {
+  position: absolute;
+  padding: 0.5rem;
+  font-weight: bold;
+  color: orange;
+  background-color: rgb(228, 225, 225);
+  width: fit-content;
+}
+.card-body p {
+  color: black;
+  font-weight: lighter;
+  margin: 1rem 0;
+}
+
 .price {
-  font-size: 2rem;
+  text-decoration: line-through;
+  font-size: smaller;
+}
+.new-price {
+  font-weight: bolder;
 }
 /* Rating */
 .rating span {

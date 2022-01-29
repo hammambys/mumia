@@ -1,23 +1,24 @@
-import React, { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import Axios from 'axios';
-import { useNavigate, useParams } from 'react-router-dom';
-import { detailsProduct, updateProduct } from '../actions/productActions';
-import LoadingBox from '../components/LoadingBox';
-import MessageBox from '../components/MessageBox';
-import { PRODUCT_UPDATE_RESET } from '../constants/productConstants';
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import Axios from "axios";
+import { useNavigate, useParams } from "react-router-dom";
+import { detailsProduct, updateProduct } from "../actions/productActions";
+import LoadingBox from "../components/LoadingBox";
+import MessageBox from "../components/MessageBox";
+import { PRODUCT_UPDATE_RESET } from "../constants/productConstants";
 
 export default function ProductEditScreen(props) {
   const navigate = useNavigate();
   const params = useParams();
   const { id: productId } = params;
-  const [name, setName] = useState('');
-  const [price, setPrice] = useState('');
-  const [image, setImage] = useState('');
-  const [category, setCategory] = useState('');
-  const [countInStock, setCountInStock] = useState('');
-  const [brand, setBrand] = useState('');
-  const [description, setDescription] = useState('');
+  const [name, setName] = useState("");
+  const [price, setPrice] = useState("");
+  const [discount, setDiscount] = useState("");
+  const [image, setImage] = useState("");
+  const [category, setCategory] = useState("");
+  const [countInStock, setCountInStock] = useState("");
+  const [brand, setBrand] = useState("");
+  const [description, setDescription] = useState("");
 
   const productDetails = useSelector((state) => state.productDetails);
   const { loading, error, product } = productDetails;
@@ -32,7 +33,7 @@ export default function ProductEditScreen(props) {
   const dispatch = useDispatch();
   useEffect(() => {
     if (successUpdate) {
-      navigate('/productlist');
+      navigate("/productlist");
     }
     if (!product || product._id !== productId || successUpdate) {
       dispatch({ type: PRODUCT_UPDATE_RESET });
@@ -40,6 +41,7 @@ export default function ProductEditScreen(props) {
     } else {
       setName(product.name);
       setPrice(product.price);
+      setDiscount(product.discount);
       setImage(product.image);
       setCategory(product.category);
       setCountInStock(product.countInStock);
@@ -55,6 +57,7 @@ export default function ProductEditScreen(props) {
         _id: productId,
         name,
         price,
+        discount,
         image,
         category,
         brand,
@@ -64,19 +67,19 @@ export default function ProductEditScreen(props) {
     );
   };
   const [loadingUpload, setLoadingUpload] = useState(false);
-  const [errorUpload, setErrorUpload] = useState('');
+  const [errorUpload, setErrorUpload] = useState("");
 
   const userSignin = useSelector((state) => state.userSignin);
   const { userInfo } = userSignin;
   const uploadFileHandler = async (e) => {
     const file = e.target.files[0];
     const bodyFormData = new FormData();
-    bodyFormData.append('image', file);
+    bodyFormData.append("image", file);
     setLoadingUpload(true);
     try {
-      const { data } = await Axios.post('/api/uploads', bodyFormData, {
+      const { data } = await Axios.post("/api/uploads", bodyFormData, {
         headers: {
-          'Content-Type': 'multipart/form-data',
+          "Content-Type": "multipart/form-data",
           Authorization: `Bearer ${userInfo.token}`,
         },
       });
@@ -89,12 +92,7 @@ export default function ProductEditScreen(props) {
   };
 
   return (
-    
-
-
-
     <div>
-      
       <form className="form" onSubmit={submitHandler}>
         <div>
           <h1>Edit Product {productId}</h1>
@@ -125,6 +123,16 @@ export default function ProductEditScreen(props) {
                 placeholder="Enter price"
                 value={price}
                 onChange={(e) => setPrice(e.target.value)}
+              ></input>
+            </div>
+            <div>
+              <label htmlFor="discount">Discount (%)</label>
+              <input
+                id="discount"
+                type="text"
+                placeholder="Enter discount"
+                value={discount}
+                onChange={(e) => setDiscount(e.target.value)}
               ></input>
             </div>
             <div>
