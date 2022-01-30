@@ -1,6 +1,7 @@
 html {
   font-size: 62.5%; /* 16px x 62.5 = 10px = 1rem */
   box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 body {
   margin: 0;
@@ -31,6 +32,8 @@ header {
   padding: 3rem 10rem;
   background-color: #ffffff;
   z-index: 1;
+  position: sticky;
+  top: 0;
 }
 main {
   grid-area: main;
@@ -39,8 +42,11 @@ main {
 }
 
 footer {
+  background-color: #282828;
+}
+footer .row {
   grid-area: footer;
-  background-color: #203040;
+  margin: 2rem 10rem;
   color: #ffffff;
 }
 /* Common */
@@ -217,8 +223,9 @@ img.large {
   color: #000000;
 }
 .card:hover {
-  width: 17.5rem;
-  height: 25.5rem;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  width: 17.1rem;
+  height: 25.1rem;
 }
 .card img {
   max-height: 18rem;
@@ -235,6 +242,9 @@ img.large {
   color: black;
   font-weight: lighter;
   margin: 1rem 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .price {
@@ -518,4 +528,11 @@ img.large {
 }
 .support-users .unread {
   background-color: #f02020;
+}
+
+.back-to-top {
+  color: #000000;
+  position: fixed;
+  right: 1rem;
+  bottom: 6rem;
 }
