@@ -9,7 +9,6 @@ import { listProducts } from "../actions/productActions";
 import { listProductCategories } from "../actions/productActions";
 import { listTopSellers } from "../actions/userActions";
 import { Link } from "react-router-dom";
-import ad from "../ad.jpg";
 import adtwo from "../adtwo.jpg";
 
 export default function HomeScreen() {
@@ -37,7 +36,7 @@ export default function HomeScreen() {
     dispatch(listTopSellers());
   }, [dispatch]);
   return (
-    <div>
+    <div className="row-home">
       <div className="row-main">
         <div className="categories-list">
           <ul className="categories">
@@ -54,8 +53,21 @@ export default function HomeScreen() {
             )}
           </ul>
         </div>
-        <div className="middle ad">
-          <img src={ad} alt="ad"></img>
+        <div className="middle">
+          <Carousel showArrows autoPlay showThumbs={false}>
+            <div className="ads">
+              <img src={adtwo} alt="ad2"></img>
+            </div>
+            <div className="ads">
+              <img src={adtwo} alt="ad2"></img>
+            </div>
+            <div className="ads">
+              <img src={adtwo} alt="ad2"></img>
+            </div>
+            <div className="ads">
+              <img src={adtwo} alt="ad2"></img>
+            </div>
+          </Carousel>
         </div>
         <div className="right">
           <div className="right-item top">
@@ -70,6 +82,23 @@ export default function HomeScreen() {
           </div>
         </div>
       </div>
+      <section className="row">
+        <Link to={"/"} className="col-3 first">
+          Link 1
+        </Link>
+
+        <Link to={"/"} className="col-3">
+          Link 2
+        </Link>
+
+        <Link to={"/"} className="col-3">
+          Link 3
+        </Link>
+
+        <Link to={"/"} className="col-3" id="last">
+          Link 4
+        </Link>
+      </section>
 
       <div className="top-sellers">
         <h2>Top Sellers</h2>
@@ -80,16 +109,6 @@ export default function HomeScreen() {
         ) : (
           <>
             {sellers.length === 0 && <MessageBox>No Seller Found</MessageBox>}
-            <Carousel showArrows autoPlay showThumbs={false}>
-              {sellers.map((seller) => (
-                <div key={seller._id}>
-                  <Link to={`/seller/${seller._id}`}>
-                    <img src={seller.seller.logo} alt={seller.seller.name} />
-                    <p className="legend">{seller.seller.name}</p>
-                  </Link>
-                </div>
-              ))}
-            </Carousel>
           </>
         )}
       </div>
