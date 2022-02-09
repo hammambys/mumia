@@ -36,7 +36,7 @@ export default function HomeScreen() {
     dispatch(listTopSellers());
   }, [dispatch]);
   return (
-    <div className="row-home">
+    <div className="row-cover">
       <div className="row-main">
         <div className="categories-list">
           <ul className="categories">
@@ -83,19 +83,19 @@ export default function HomeScreen() {
         </div>
       </div>
       <section className="row">
-        <Link to={"/"} className="col-3 first">
+        <Link to={"/"} className="col-4 first">
           Link 1
         </Link>
 
-        <Link to={"/"} className="col-3">
+        <Link to={"/"} className="col-4">
           Link 2
         </Link>
 
-        <Link to={"/"} className="col-3">
+        <Link to={"/"} className="col-4">
           Link 3
         </Link>
 
-        <Link to={"/"} className="col-3" id="last">
+        <Link to={"/"} className="col-4" id="last">
           Link 4
         </Link>
       </section>
