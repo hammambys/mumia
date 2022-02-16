@@ -9,7 +9,12 @@ export default function Product(props) {
         {product.discount > 0 && (
           <div className="discount">-{product.discount}%</div>
         )}
-        <img className="large" src={product.image} alt={product.name} />
+
+        <img
+          className="large"
+          src={"https://drive.google.com/uc?export=view&id=" + product.image}
+          alt={product.name}
+        />
 
         <div className="card-body">
           <p>{product.name}</p>
