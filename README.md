@@ -13,7 +13,7 @@ Welcome to my React and Node tutorial to build a fully-functional e-commerce web
 
 ## You Will Learn
 
-- HTML5 and CSS3: Semantic Elements, CSS Grid, Flexbox
+- HTML5 and CSS3 : Semantic Elements, CSS Grid, Flexbox
 - React: Components, Props, Events, Hooks, Router, Axios
 - Redux: Store, Reducers, Actions
 - Node & Express: Web API, Body Parser, File Upload, JWT
