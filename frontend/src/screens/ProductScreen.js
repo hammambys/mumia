@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { Link, useNavigate, useParams } from 'react-router-dom';
-import { createReview, detailsProduct } from '../actions/productActions';
-import LoadingBox from '../components/LoadingBox';
-import MessageBox from '../components/MessageBox';
-import Rating from '../components/Rating';
-import { PRODUCT_REVIEW_CREATE_RESET } from '../constants/productConstants';
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { Link, useNavigate, useParams } from "react-router-dom";
+import { createReview, detailsProduct } from "../actions/productActions";
+import LoadingBox from "../components/LoadingBox";
+import MessageBox from "../components/MessageBox";
+import Rating from "../components/Rating";
+import { PRODUCT_REVIEW_CREATE_RESET } from "../constants/productConstants";
 
 export default function ProductScreen(props) {
   const navigate = useNavigate();
@@ -28,13 +28,13 @@ export default function ProductScreen(props) {
   } = productReviewCreate;
 
   const [rating, setRating] = useState(0);
-  const [comment, setComment] = useState('');
+  const [comment, setComment] = useState("");
 
   useEffect(() => {
     if (successReviewCreate) {
-      window.alert('Review Submitted Successfully');
-      setRating('');
-      setComment('');
+      window.alert("Review Submitted Successfully");
+      setRating("");
+      setComment("");
       dispatch({ type: PRODUCT_REVIEW_CREATE_RESET });
     }
     dispatch(detailsProduct(productId));
@@ -49,7 +49,7 @@ export default function ProductScreen(props) {
         createReview(productId, { rating, comment, name: userInfo.name })
       );
     } else {
-      alert('Please enter comment and rating');
+      alert("Please enter comment and rating");
     }
   };
   return (
@@ -60,38 +60,43 @@ export default function ProductScreen(props) {
         <MessageBox variant="danger">{error}</MessageBox>
       ) : (
         <div>
-          <Link to="/">Back to result</Link>
-          <div className="row top">
-            <div className="col-2">
-              <img
-                className="large"
-                src={product.image}
-                alt={product.name}
-              ></img>
+          <div className="row ">
+            <div className="main-product">
+              <div className="left">
+                <img
+                  className="medium"
+                  src={
+                    "https://drive.google.com/uc?export=view&id=" +
+                    product.image
+                  }
+                  alt={product.name}
+                ></img>
+              </div>
+              <div className="col-1">
+                <ul>
+                  <li>
+                    <h1>{product.name}</h1>
+                  </li>
+                  <li>
+                    <Rating
+                      rating={product.rating}
+                      numReviews={product.numReviews}
+                    ></Rating>
+                  </li>
+                  <li>Price : {product.price} TND</li>
+                  <li>
+                    Description:
+                    <p>{product.description}</p>
+                  </li>
+                </ul>
+              </div>
             </div>
-            <div className="col-1">
-              <ul>
-                <li>
-                  <h1>{product.name}</h1>
-                </li>
-                <li>
-                  <Rating
-                    rating={product.rating}
-                    numReviews={product.numReviews}
-                  ></Rating>
-                </li>
-                <li>Pirce : ${product.price}</li>
-                <li>
-                  Description:
-                  <p>{product.description}</p>
-                </li>
-              </ul>
-            </div>
-            <div className="col-1">
+
+            <div className="">
               <div className="card card-body">
                 <ul>
                   <li>
-                    Seller{' '}
+                    Seller{" "}
                     <h2>
                       <Link to={`/seller/${product.seller._id}`}>
                         {product.seller.seller.name}
@@ -105,7 +110,7 @@ export default function ProductScreen(props) {
                   <li>
                     <div className="row">
                       <div>Price</div>
-                      <div className="price">${product.price}</div>
+                      <div className="price">{product.price} TND</div>
                     </div>
                   </li>
                   <li>

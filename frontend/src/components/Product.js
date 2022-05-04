@@ -9,12 +9,13 @@ export default function Product(props) {
         {product.discount > 0 && (
           <div className="discount">-{product.discount}%</div>
         )}
-
-        <img
-          className="large"
-          src={"https://drive.google.com/uc?export=view&id=" + product.image}
-          alt={product.name}
-        />
+        <div className="card-img">
+          <img
+            className="small"
+            src={"https://drive.google.com/uc?export=view&id=" + product.image}
+            alt={product.name}
+          />
+        </div>
 
         <div className="card-body">
           <p>{product.name}</p>
@@ -23,7 +24,8 @@ export default function Product(props) {
           ) : (
             <div>
               <div className="new-price">
-                {product.price * ((100 - product.discount) / 100)}TND
+                {Math.trunc(product.price * ((100 - product.discount) / 100))}
+                TND
               </div>
               <div className="price">{product.price}TND</div>
             </div>

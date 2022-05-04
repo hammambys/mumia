@@ -36,7 +36,7 @@ export default function HomeScreen() {
     dispatch(listTopSellers());
   }, [dispatch]);
   return (
-    <div className="row-cover">
+    <div>
       <div className="row-main">
         <div className="categories-list">
           <ul className="categories">
@@ -46,9 +46,11 @@ export default function HomeScreen() {
               <MessageBox variant="danger">{errorCategories}</MessageBox>
             ) : (
               categories.map((c) => (
-                <li key={c}>
-                  <Link to={`/search/category/${c}`}>{c}</Link>
-                </li>
+                <div className="category-item">
+                  <li key={c}>
+                    <Link to={`/search/category/${c}`}>{c}</Link>
+                  </li>
+                </div>
               ))
             )}
           </ul>
@@ -71,11 +73,7 @@ export default function HomeScreen() {
         </div>
         <div className="right">
           <div className="right-item top">
-            <ul>
-              <li>Help</li>
-              <li>Sell on Jumia</li>
-              <li>Create Account</li>
-            </ul>
+            <img src={adtwo} alt="ad2"></img>
           </div>
           <div className="right-item bottom ad">
             <img src={adtwo} alt="ad2"></img>

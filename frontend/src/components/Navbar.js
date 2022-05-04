@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { signout } from "../actions/userActions";
 import SearchBox from "./SearchBox";
+import cartIcon from "../cart.png";
 
 export default function Navbar() {
   const cart = useSelector((state) => state.cart);
@@ -24,47 +25,46 @@ export default function Navbar() {
       <div>
         <SearchBox />
       </div>
-      {userInfo ? (
-        <div className="dropdown">
-          <Link to="#">
-            {userInfo.name} <i className="fa fa-caret-down"></i>{" "}
-          </Link>
-          <ul className="dropdown-content">
-            <li>
-              <Link to="/profile">User Profile</Link>
-            </li>
-            <li>
-              <Link to="/orderhistory">Order History</Link>
-            </li>
-            <li>
-              <Link to="#signout" onClick={signoutHandler}>
-                Sign Out
-              </Link>
-            </li>
-          </ul>
-        </div>
-      ) : (
-        <Link to="/signin">Sign in</Link>
-      )}
+      <div className="navbar">
+        {userInfo ? (
+          <div className="dropdown">
+            <Link to="#">
+              {userInfo.name} <i className="fa fa-caret-down"></i>{" "}
+            </Link>
+            <ul className="dropdown-content">
+              <li>
+                <Link to="/profile">User Profile</Link>
+              </li>
+              <li>
+                <Link to="/orderhistory">Order History</Link>
+              </li>
+              <li>
+                <Link to="#signout" onClick={signoutHandler}>
+                  Sign Out
+                </Link>
+              </li>
+            </ul>
+          </div>
+        ) : (
+          <Link to="/signin">Sign in</Link>
+        )}
+      </div>
+
       <div>
         <div className="dropdown">
           <Link to="#">Help</Link>
-          <ul className="dropdown-content">
-            <button className="primary" type="submit">
-              {" "}
-              LIVE CHAT
-            </button>
-          </ul>
         </div>
       </div>
       <div>
         <Link to="/cart">
+          <img alt="cart icon" src={cartIcon}></img>
           Cart
           {cartItems.length > 0 && (
             <span className="badge">{cartItems.length}</span>
           )}
         </Link>
-
+      </div>
+      <div>
         {userInfo && userInfo.isSeller && (
           <div className="dropdown">
             <Link to="#admin">
@@ -83,7 +83,7 @@ export default function Navbar() {
         {userInfo && userInfo.isAdmin && (
           <div className="dropdown">
             <Link to="#admin">
-              Admin <i className="fa fa-caret-down"></i>
+              Admin Menu <i className="fa fa-caret-down"></i>
             </Link>
             <ul className="dropdown-content">
               <li>

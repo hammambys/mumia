@@ -54,7 +54,7 @@ export default function SearchScreen(props) {
     return `/search/category/${filterCategory}/name/${filterName}/min/${filterMin}/max/${filterMax}/rating/${filterRating}/order/${sortOrder}/pageNumber/${filterPage}`;
   };
   return (
-    <div className="row-cover">
+    <div>
       <div className="row">
         {loading ? (
           <LoadingBox></LoadingBox>

@@ -1,17 +1,17 @@
-import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { Link, useNavigate } from 'react-router-dom';
-import { createOrder } from '../actions/orderActions';
-import CheckoutSteps from '../components/CheckoutSteps';
-import { ORDER_CREATE_RESET } from '../constants/orderConstants';
-import LoadingBox from '../components/LoadingBox';
-import MessageBox from '../components/MessageBox';
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { Link, useNavigate } from "react-router-dom";
+import { createOrder } from "../actions/orderActions";
+import CheckoutSteps from "../components/CheckoutSteps";
+import { ORDER_CREATE_RESET } from "../constants/orderConstants";
+import LoadingBox from "../components/LoadingBox";
+import MessageBox from "../components/MessageBox";
 
 export default function PlaceOrderScreen(props) {
   const navigate = useNavigate();
   const cart = useSelector((state) => state.cart);
   if (!cart.paymentMethod) {
-    navigate('/payment');
+    navigate("/payment");
   }
   const orderCreate = useSelector((state) => state.orderCreate);
   const { loading, success, error, order } = orderCreate;
@@ -39,7 +39,7 @@ export default function PlaceOrderScreen(props) {
         <div className="col-2">
           <ul>
             <li>
-              <div className="card card-body">
+              <div className=" card-body">
                 <h2>Shipping</h2>
                 <p>
                   <strong>Name:</strong> {cart.shippingAddress.fullName} <br />
@@ -50,7 +50,7 @@ export default function PlaceOrderScreen(props) {
               </div>
             </li>
             <li>
-              <div className="card card-body">
+              <div className=" card-body">
                 <h2>Payment</h2>
                 <p>
                   <strong>Method:</strong> {cart.paymentMethod}
@@ -58,7 +58,7 @@ export default function PlaceOrderScreen(props) {
               </div>
             </li>
             <li>
-              <div className="card card-body">
+              <div className=" card-body">
                 <h2>Order Items</h2>
                 <ul>
                   {cart.cartItems.map((item) => (
@@ -66,9 +66,12 @@ export default function PlaceOrderScreen(props) {
                       <div className="row">
                         <div>
                           <img
-                            src={item.image}
+                            src={
+                              "https://drive.google.com/uc?export=view&id=" +
+                              item.image
+                            }
                             alt={item.name}
-                            className="small"
+                            className="very-small"
                           ></img>
                         </div>
                         <div className="min-30">
@@ -89,7 +92,7 @@ export default function PlaceOrderScreen(props) {
           </ul>
         </div>
         <div className="col-1">
-          <div className="card card-body">
+          <div className=" card-body">
             <ul>
               <li>
                 <h2>Order Summary</h2>

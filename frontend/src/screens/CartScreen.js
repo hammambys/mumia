@@ -1,8 +1,8 @@
-import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { Link, useNavigate, useParams, useLocation } from 'react-router-dom';
-import { addToCart, removeFromCart } from '../actions/cartActions';
-import MessageBox from '../components/MessageBox';
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { Link, useNavigate, useParams, useLocation } from "react-router-dom";
+import { addToCart, removeFromCart } from "../actions/cartActions";
+import MessageBox from "../components/MessageBox";
 
 export default function CartScreen(props) {
   const navigate = useNavigate();
@@ -10,7 +10,7 @@ export default function CartScreen(props) {
   const { id: productId } = params;
 
   const { search } = useLocation();
-  const qtyInUrl = new URLSearchParams(search).get('qty');
+  const qtyInUrl = new URLSearchParams(search).get("qty");
   const qty = qtyInUrl ? Number(qtyInUrl) : 1;
 
   const cart = useSelector((state) => state.cart);
@@ -28,10 +28,10 @@ export default function CartScreen(props) {
   };
 
   const checkoutHandler = () => {
-    navigate('/signin?redirect=/shipping');
+    navigate("/signin?redirect=/shipping");
   };
   return (
-    <div className="row top">
+    <div className="row top ">
       <div className="col-2">
         <h1>Shopping Cart</h1>
         {error && <MessageBox variant="danger">{error}</MessageBox>}
@@ -46,9 +46,12 @@ export default function CartScreen(props) {
                 <div className="row">
                   <div>
                     <img
-                      src={item.image}
+                      src={
+                        "https://drive.google.com/uc?export=view&id=" +
+                        item.image
+                      }
                       alt={item.name}
-                      className="small"
+                      className="very-small"
                     ></img>
                   </div>
                   <div className="min-30">

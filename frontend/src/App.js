@@ -38,7 +38,7 @@ function App() {
     <BrowserRouter>
       <div className="grid-container">
         <Navbar />
-        <main>
+        <main className="row-cover">
           <Routes>
             <Route path="/seller/:id" element={<SellerScreen />}></Route>
             <Route path="/cart" element={<CartScreen />}></Route>
